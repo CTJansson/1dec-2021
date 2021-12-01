@@ -14,16 +14,23 @@ int increamentPartB = 0;
 
 for (int i = 1; i < lines.Count; i++)
 {
-    int.TryParse(lines[i-1], out int lineA);
-    int.TryParse(lines[i], out int lineB);
-
-    if (lineA < lineB) 
+    if (numbers[i-1] < numbers[i]) 
     {
         increamentPartA++;
     }
 
-    
+    if (i +2 < lines.Count)
+    {
+        int compareA = numbers[i - 1] + numbers[i] + numbers[i + 1];
+        int compareB = numbers[i] + numbers[i + 1] + numbers[i + 2];
+
+        if (compareA < compareB)
+        {
+            increamentPartB++;
+        }
+    }    
 }
 
-Console.WriteLine(increamentPartA.ToString());
+Console.WriteLine("Part A: " + increamentPartA.ToString());
+Console.WriteLine("Part B: " + increamentPartB.ToString());
 Console.ReadLine();
